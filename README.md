@@ -2,7 +2,7 @@
 
 Car price predictor using a convolutional neural network. This was for the final assignment for the Neural Networks course.
 
-By s3301419, s3814254
+By s3301419, s3814254, s3593673
 
 ## Dataset
 
