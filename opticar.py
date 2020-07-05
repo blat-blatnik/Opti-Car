@@ -3,7 +3,6 @@ from tensorflow.keras.layers import Input, BatchNormalization, Conv2D, MaxPoolin
 from tensorflow.keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
 from tqdm import tqdm
-from glob import glob
 from sys import argv
 from cv2 import *
 from os import listdir, path
@@ -16,7 +15,6 @@ imageWidth    = 160
 imageHeight   = 160
 grayscale     = True
 learningRate  = 0.002
-numEpochs     = 500
 batchSize     = 64
 augmentFlip   = False
 augmentRotate = 0 # (minDegrees, maxDegrees) of rotation
@@ -27,7 +25,7 @@ augmentRotate = 0 # (minDegrees, maxDegrees) of rotation
 #
 
 
-def trainModel(imagePath):
+def trainModel(imagePath, numEpochs):
 	print('')
 	print('loading images...')
 	print('')
@@ -177,11 +175,13 @@ np.random.seed(RNGSeed)
 
 
 if len(argv) < 2:
-	print('usage: $ %s [train] image-directory' % argv[0])
+	print('usage')
+	print('  train    $ python3 %s train DATASET-DIR NUM-EPOCHS' % argv[0])
+	print('  predict  $ python3 %s IMAGE-DIR' % argv[0])
 	exit()
 
 imagePath = argv[1]
 if imagePath == 'train':
-	trainModel(argv[2])
+	trainModel(argv[2], int(argv[3]))
 else:
 	predictPrices(imagePath)
