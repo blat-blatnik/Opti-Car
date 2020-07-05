@@ -33,13 +33,13 @@ $ pip install tensorflow numpy opencv-python matplotlib tqdm pillow pyautogui py
 To train the model, download the dataset, and pass the dataset-directory and number of epochs to train to the script like so:
 
 ```bash
-# example: $ python3 opticar.py train "cars/images" 30
+# example: $ python3 opticar.py train "cars/images/" 30
 $ python3 opticar.py train DATASET-DIR NUM-EPOCHS
 ```
 
 To use a trained model to predict prices, place the model's weight file `weights.h5` into the same directory as the script, and place all of the car images that you want to run the model on in another directory. Then run the script like so:
 
 ```bash
-# example: $ python3 opticar.py "cars/images"
+# example: $ python3 opticar.py "cars/images/"
 $ python3 opticar.py IMAGES-DIR
 ```
