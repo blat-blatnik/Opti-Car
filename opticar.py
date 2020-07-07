@@ -10,14 +10,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-RNGSeed       = 42
-imageWidth    = 150
+# model hyperparameters
+# ---------------------
+RNGSeed       = 42     # for reproducability
+imageWidth    = 150    # these should probably be kept square - good values larger than 100
 imageHeight   = 150
-grayscale     = True
-learningRate  = 0.001
-batchSize     = 64
-augmentFlip   = False
-augmentRotate = 0 # (minDegrees, maxDegrees) of rotation
+grayscale     = True   # train with a color image, or convert to grayscale?
+learningRate  = 0.001  # model learning rate for Adam - good values around 0.001
+batchSize     = 64     # batch size - set as high as possible before running out of memory
+augmentFlip   = False  # augment data by flipping images vertically, producing 2 training images for every 1 image in the dataset
+augmentRotate = 0      # augment data by rotating images by random angle between (-augmentRotate, +augmentRotate) degrees. set to 0 for no augmentation
 
 
 #
@@ -25,6 +27,9 @@ augmentRotate = 0 # (minDegrees, maxDegrees) of rotation
 #
 
 
+# train a new model using images from the given imagePath, for a given numEpochs
+# when training is done a plot of the loss over every epoch is shown, and the model
+# is saved to the current directory as 'model.h5'
 def trainModel(imagePath, numEpochs):
 	print('')
 	print('loading images...')
@@ -126,6 +131,9 @@ def trainModel(imagePath, numEpochs):
 	print('')
 
 
+# loads a model from 'model.h5' located in the current directory (crashes if this doesn't exist)
+# and then uses this model to predict the prices of all images in the given path
+# note that the prices are predicted on a scale relative to the max price of the prices the model was trained on
 def predictPrices(imagePath):
 	print('')
 	print('loading model...')
