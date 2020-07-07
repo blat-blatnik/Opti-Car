@@ -11,10 +11,10 @@ import numpy as np
 
 
 RNGSeed       = 42
-imageWidth    = 160
-imageHeight   = 160
+imageWidth    = 150
+imageHeight   = 150
 grayscale     = True
-learningRate  = 0.002
+learningRate  = 0.001
 batchSize     = 64
 augmentFlip   = False
 augmentRotate = 0 # (minDegrees, maxDegrees) of rotation
