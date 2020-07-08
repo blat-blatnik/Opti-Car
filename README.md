@@ -37,7 +37,7 @@ To train the model, download the dataset, and pass the dataset-directory and num
 $ python3 opticar.py train DATASET-DIR NUM-EPOCHS
 ```
 
-To use a trained model to predict prices, place the model's weight file `weights.h5` into the same directory as the script, and place all of the car images that you want to run the model on in another directory. Then run the script like so:
+To use a trained model to predict prices, place the model's weight file `model.h5` into the same directory as the script, and place all of the car images that you want to run the model on in another directory. Then run the script like so:
 
 ```bash
 # example: $ python3 opticar.py "cars/images/"
