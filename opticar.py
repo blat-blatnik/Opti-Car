@@ -151,7 +151,6 @@ def predictPrices(imagePath):
 
 
 def loadImage(file):
-	file = path.join(imagePath, file)
 	if grayscale:
 		img = imread(file, IMREAD_GRAYSCALE)
 		height, width = img.shape
